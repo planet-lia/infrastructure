@@ -10,7 +10,7 @@ This directory contains everything necessary to spin up a new Kubernetes cluster
 ## Creating a Kubernetes Cluster
 Dependenices:
 - Python 3 (version 3.7.4 was used when writing this guide)
-- Ansible (version 2.8.4 was used when writing this guide)
+- Ansible (version 2.7, version 2.8 isn't supported yet, see #1)
 
 Before starting you should have at least two nodes ready.
 We assume that the nodes are running Ubuntu 18.04 LTS or similar and you have SSH access.
