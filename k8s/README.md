@@ -58,7 +58,7 @@ It's not good security practice to leave the Kubernetes API Server exposed on th
 
 Instead what you can do is disable Internet traffic from reaching the Kubernetes API Server (port 6443 by default) and rather forward your traffic via SSH (SSH needs to be reachable via the Internet for this to work ofc :stuck_out_tongue:).
 ```bash
-$ ./firewall <CLUSTER_MASTER_NODE> <SSH_PRIVATE_KEY>
+$ ./firewall.sh <CLUSTER_MASTER_NODE> <SSH_PRIVATE_KEY> <CLUSTER_SUBNET_CIDR>
 
 # Copy this somewhere convienient, e.g. ~/.kube/local_forward.sh
 # Then whenever you need to forward your traffic (when using kubectl) run
