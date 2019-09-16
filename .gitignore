@@ -1,3 +1,4 @@
 .DS_Store
 k8s/venv
 k8s/deployment/*/credentials
+.idea/

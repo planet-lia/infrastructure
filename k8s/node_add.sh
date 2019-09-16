@@ -1,6 +1,7 @@
+
 #! /usr/bin/env bash
 
-# Run the Kubespray deployment Ansible playbook to install the cluster
+# Add node to a Kubernetes deployment using the Kubespray Ansible playbook
 
 set -e
 
@@ -9,7 +10,7 @@ cd $(dirname "$0")
 
 if [ $# -ne 2 ]
   then
-    echo "Usage: ./install.sh <CLUSTER_NAME> <SSH_PRIVATE_KEY>"
+    echo "Usage: ./node_add.sh <CLUSTER_NAME> <SSH_PRIVATE_KEY>"
     exit 1
 fi
 
@@ -37,4 +38,4 @@ if [ ! -f $OVERRIDE_FILE ]; then
 fi
 
 set -x
-ansible-playbook -i ${INVENTORY_FILE} --become --become-user=root --extra-vars=@${OVERRIDE_FILE} --private-key=${SSH_PRIVATE_KEY} kubespray/cluster.yml
+ansible-playbook -i ${INVENTORY_FILE} --become --become-user=root --extra-vars=@${OVERRIDE_FILE} --private-key=${SSH_PRIVATE_KEY} kubespray/scale.yml

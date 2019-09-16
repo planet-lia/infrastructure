@@ -3,12 +3,13 @@ This directory contains everything necessary to spin up a new Kubernetes cluster
 
 ## Quick Overview of Bundled Scripts
 - `cluster_create_files.sh`: Creates the deployment project directories & files (in `k8s/deployment`)
-- `install.sh`: Installes the Kubernetes cluster using the Kubespray files created earlier using `cluster_create_files.sh`
+- `install.sh`: Installs the Kubernetes cluster using the Kubespray files created earlier using `cluster_create_files.sh`
 - `firewall.sh`: Optional script used to disable Kubernetes API Server traffic from the internet, instead you would forward your traffic via SSH to access the Kubernetes API Server.
 - `local_forward.sh`: Helper script that is best if you copy locally and use to forward your Kubernetes API Server traffic to your K8s master node.
 
-## Creating a Kubernetes Cluster
-Dependenices:
+## Kubernetes Cluster
+### Installation
+Dependencies:
 - Python 3 (version 3.7.4 was used when writing this guide)
 - Ansible (version 2.7, version 2.8 isn't supported yet, see [#1](https://github.com/planet-lia/infrastructure/issues/1))
 
@@ -16,7 +17,7 @@ Before starting you should have at least two nodes ready.
 We assume that the nodes are running Ubuntu 18.04 LTS or similar and you have SSH access.
 
 **Note**: login using SSH at least one time (or regenerate the SSH key fingerprint) to accept the server's SSH fingerprint.
-Otherwise the ansible script will probably fail to connect to the server.  
+Otherwise the Ansible script will probably fail to connect to the server.  
 
 First do a pull from `k8s/kubespray` since it's a submodule to get the latest changes.
 ```bash
@@ -60,7 +61,7 @@ Instead what you can do is disable Internet traffic from reaching the Kubernetes
 ```bash
 $ ./firewall.sh <CLUSTER_MASTER_NODE> <SSH_PRIVATE_KEY> <CLUSTER_SUBNET_CIDR>
 
-# Copy this somewhere convienient, e.g. ~/.kube/local_forward.sh
+# Copy this somewhere convenient, e.g. ~/.kube/local_forward.sh
 # Then whenever you need to forward your traffic (when using kubectl) run
 $ ./local_forward.sh <CLUSTER_MASTER_NODE>
 ```
@@ -82,6 +83,36 @@ $ kubectl describe secret <NAME_OF_SECRET_FROM_ABOVE_COMMAND>
 ```
 Now if you visit: `https://127.0.0.1:6443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default` you can paste in your token and access the dashboard.
 If you wish to upload your kubeconfig file you will need to [paste your token into the config file](https://stackoverflow.com/a/51446875).
+
+
+### Adding a Node
+To add a node to the cluster you can simply add it to your cluster's `inventory.ini` file and run:
+```bash
+./node_add.sh <CLUSTER_NAME> <SSH_PRIVATE_KEY>
+```
+
+Note: same as when creating the cluster, make sure SSH does not inquire about the fingerprint (so login and/or reset the fingerprint of the new node at least once).
+
+### Removing a Node
+Similar to adding a node, simply run:
+```bash
+./node_add.sh <CLUSTER_NAME> <SSH_PRIVATE_KEY> <NODE>  # NODE is the name of the node in the inventory.ini file
+```
+**BEFORE YOU RUN THE SCRIPT**: There is [a bug in Kubespray](https://github.com/kubernetes-sigs/kubespray/issues/5160) which causes some variables not to be initialized and the removal process is unsuccessful. 
+As a temporary fix open `kubespray/remove-node.yml` and change
+```yaml
+- hosts: "{{ node | default('kube-node') }}"
+  gather_facts: no
+```
+into:
+```yaml
+- hosts: "{{ node | default('kube-node') }}"
+  gather_facts: yes
+```
+
+You may now run the `node_add.sh` script.
+
+After the successful removal of the node you may remove the node's entry in the `inventory.ini` file of your cluster.
 
 ## Credits
 The credit for the structure of the repository and Kubespray technique used to house multiple clusters goes to the :crown: Kubernetes Wizard [dr. Mataž Pančur](https://fri.uni-lj.si/en/employees/matjaz-pancur). 

@@ -14,13 +14,13 @@ upstream_dns_servers:
 ingress_nginx_enabled: true
 ingress_nginx_host_network: true
 ingress_nginx_nodeselector:
-  kubernetes.io/hostname: "e10"
+  kubernetes.io/hostname: "s3-lia-node1"
 ingress_nginx_namespace: "kube-system"
 
 # This should not be used on other clusters. We pin the version to v0.24.1 because
 # more recent versions require SSE4.2 instruction set which on node e10 (which we pin
 # with a label selector to be our ingress controller node) is unavailable. 
-ingress_nginx_controller_image_tag: 0.24.1
+# ingress_nginx_controller_image_tag: 0.24.1
 
 # Choose data store type for calico: "etcd" or "kdd" (kubernetes datastore)
 calico_datastore: "kdd"
