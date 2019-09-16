@@ -4,8 +4,8 @@ This directory contains everything necessary to spin up a new Kubernetes cluster
 ## Quick Overview of Bundled Scripts
 - `cluster_create_files.sh`: Creates the deployment project directories & files (in `k8s/deployment`)
 - `install.sh`: Installs the Kubernetes cluster using the Kubespray files created earlier using `cluster_create_files.sh`
-- `firewall.sh`: Optional script used to disable Kubernetes API Server traffic from the internet, instead you would forward your traffic via SSH to access the Kubernetes API Server.
-- `local_forward.sh`: Helper script that is best if you copy locally and use to forward your Kubernetes API Server traffic to your K8s master node.
+- `firewall.sh`: Optional script used to disable Kubernetes API Server traffic from the internet, instead you would forward your traffic via SSH to access the Kubernetes API Server
+- `local_forward.sh`: Helper script that is best if you copy locally and use to forward your Kubernetes API Server traffic to your K8s master node
 - `node_add.sh`: Adds a node to the cluster
 - `node_remove.sh`: Removes a node from the cluster
 

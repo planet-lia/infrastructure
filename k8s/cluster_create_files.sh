@@ -18,7 +18,7 @@ CLUSTER_NAME=$1
 
 mkdir -p deployment/${CLUSTER_NAME}
 cp kubespray/inventory/sample/inventory.ini deployment/${CLUSTER_NAME}/
-ln -s $PWD/kubespray/inventory/sample/group_vars $PWD/deployment/${CLUSTER_NAME}/group_vars
+ln -s ../../kubespray/inventory/sample/group_vars $PWD/deployment/${CLUSTER_NAME}/group_vars
 
 touch deployment/${CLUSTER_NAME}/overrides.yml
 
