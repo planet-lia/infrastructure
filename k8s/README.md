@@ -100,20 +100,6 @@ Similar to adding a node, simply run:
 ```bash
 ./node_add.sh <CLUSTER_NAME> <SSH_PRIVATE_KEY> <NODE>  # NODE is the name of the node in the inventory.ini file
 ```
-**BEFORE YOU RUN THE SCRIPT**: There is [a bug in Kubespray](https://github.com/kubernetes-sigs/kubespray/issues/5160) which causes some variables not to be initialized and the removal process is unsuccessful. 
-As a temporary fix open `kubespray/remove-node.yml` and change
-```yaml
-- hosts: "{{ node | default('kube-node') }}"
-  gather_facts: no
-```
-into:
-```yaml
-- hosts: "{{ node | default('kube-node') }}"
-  gather_facts: yes
-```
-
-You may now run the `node_add.sh` script.
-
 After the successful removal of the node you may remove the node's entry in the `inventory.ini` file of your cluster.
 
 ## Credits
