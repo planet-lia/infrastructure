@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+data:
+  url: https://argocd.production.cloud.planetlia.com
+
+  statusbadge.enabled: 'true'
+
+  dex.config: |
+    connectors:
+      - type: github
+        id: github
+        name: GitHub
+        config:
+          # https://github.com/organizations/planet-lia/settings/applications/1143168
+          clientID: 61c87dfcd6b9ef701c6e
+          clientSecret: $dex.github.clientSecret  # IMPORTANT! - Do not forget to patch secret file (see `secrets/README.md` dir)
+          orgs:
+          - name: planet-lia
+            teams:
+            - infrastructure-admin

@@ -1,0 +1,52 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/planet-lia/infrastructure
+    targetRevision: HEAD 
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+  ignoreDifferences:
+    # This solves a bug where argo-cd will mark the application as healthy but OutOfSync
+    # this occurs because cert-manager updates the status field in the CRD. This field 
+    # makes argo-cd diff's think it is out of sync.
+    # https://github.com/argoproj/argo-cd/issues/2239
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: certificaterequests.certmanager.k8s.io
+      jsonPointers:
+      - /status
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: certificates.certmanager.k8s.io
+      jsonPointers:
+      - /status
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: challenges.certmanager.k8s.io
+      jsonPointers:
+      - /status
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: clusterissuers.certmanager.k8s.io
+      jsonPointers:
+      - /status
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: issuers.certmanager.k8s.io
+      jsonPointers:
+      - /status
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: orders.certmanager.k8s.io
+      jsonPointers:
+      - /status

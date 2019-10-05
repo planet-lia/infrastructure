@@ -1,4 +1,8 @@
+.idea
 .DS_Store
-k8s/venv
-k8s/deployment/*/credentials
-.idea/
+cluster/venv
+cluster/deployment/*/credentials
+
+secrets/*
+!secrets/templates
+!secrets/README.md

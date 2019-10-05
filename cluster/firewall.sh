@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Turn's on the UFW firewall and configures it to allow everything (incl. SSH)
 # except 6443 (Kubernetes API server) for incoming traffic.

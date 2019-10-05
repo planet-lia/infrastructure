@@ -1,11 +1,10 @@
-
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Remove node from a Kubernetes cluster deployment using the Kubespray Ansible playbook
 
 set -e
 
-# Move to k8s dir (where the install.sh script is)
+# Move to cluster dir (where the install.sh script is)
 cd $(dirname "$0")
 
 if [ $# -ne 3 ]

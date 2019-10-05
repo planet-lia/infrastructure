@@ -1,11 +1,11 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Create the necessary Kubespray files to override the defaults 
 # when creating your Kubespray deployment project. 
 
 set -e
 
-# Move to k8s dir (where the install.sh script is)
+# Change working directory to cluster dir (where the install.sh script is)
 cd $(dirname "$0")
 
 if [ $# -ne 1 ]

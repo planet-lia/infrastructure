@@ -1,6 +1,3 @@
----
-## overrides
-
 # group_vars/all/all.yaml
 
 ## Upstream dns servers used by dnsmasq

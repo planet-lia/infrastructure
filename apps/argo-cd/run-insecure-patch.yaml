@@ -1,0 +1,19 @@
+# Since we are doing TLS termination on our ingress controller and we wish to manage certificates
+# using cert-manager we disable TLS on the argocd-server.
+#
+# https://argoproj.github.io/argo-cd/operator-manual/ingress/#option-2-multiple-ingress-objects-and-hosts
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-server
+spec:
+  template:
+    spec:
+      containers:
+      - name: argocd-server
+        command:
+        - argocd-server
+        - --staticassets
+        - /shared/app
+        - --insecure

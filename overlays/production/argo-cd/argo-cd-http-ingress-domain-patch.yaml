@@ -1,0 +1,11 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: argocd.production.cloud.planetlia.com
+
+- op: replace
+  path: /spec/tls/0/hosts/0
+  value: argocd.production.cloud.planetlia.com
+
+- op: replace
+  path: /spec/tls/0/secretName
+  value: argocd.production.cloud.planetlia.com

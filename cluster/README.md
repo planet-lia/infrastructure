@@ -2,12 +2,14 @@
 This directory contains everything necessary to spin up a new Kubernetes cluster deployment.
 
 ## Quick Overview of Bundled Scripts
-- `cluster_create_files.sh`: Creates the deployment project directories & files (in `k8s/deployment`)
+- `cluster_create_files.sh`: Creates the deployment project directories & files (in `cluster/deployment`)
 - `install.sh`: Installs the Kubernetes cluster using the Kubespray files created earlier using `cluster_create_files.sh`
 - `firewall.sh`: Optional script used to disable Kubernetes API Server traffic from the internet, instead you would forward your traffic via SSH to access the Kubernetes API Server
+- `get_k8s_config.sh`: Get the Kubernetes admin configuration file from the newly created cluster
 - `local_forward.sh`: Helper script that is best if you copy locally and use to forward your Kubernetes API Server traffic to your K8s master node
 - `node_add.sh`: Adds a node to the cluster
 - `node_remove.sh`: Removes a node from the cluster
+- `install_overlay.sh`: Installs an overlay to the cluster, see main [README.md](../README.md) for more details 
 
 ## Kubernetes Cluster
 ### Installation
@@ -21,15 +23,17 @@ We assume that the nodes are running Ubuntu 18.04 LTS or similar and you have SS
 **Note**: login using SSH at least one time (or regenerate the SSH key fingerprint) to accept the server's SSH fingerprint.
 Otherwise the Ansible script will probably fail to connect to the server.  
 
-First do a pull from `k8s/kubespray` since it's a submodule to get the latest changes.
+First do a pull from `cluster/kubespray` since it's a submodule to get the latest changes.
 ```bash
-$ cd ./kubespray
+$ cd cluster/kubespray
 $ git pull
+$ cd ../ # You should now be in the `cluster` dir
 ```
 
-Then create a Python3 virtual environment in the `k8s` dir and activate it.
+From hereon we assume your working directory is `./cluster`.
+
+Create a Python3 virtual environment in the `cluster` dir and activate it.
 ```bash
-$ cd ../ # You should now be in `./k8s`
 $ virtualenv -p python3 venv
 $ source venv/bin/activate
 ```
@@ -49,12 +53,17 @@ Configure the `inventory.ini` and `overrides.yml` files for your cluster.
 
 Install time!
 ```bash
-$ ./install.sh <CLUSTER_NAME> <SSH_PRIVATE_KEY>
+$ ./install.sh <CLUSTER_NAME> <SSH_PRIVATE_KEY_PATH>
 # Now wait...
 ```
 
-SSH into your master node and copy locally the `/etc/kubernetes/admin.conf` file.
-This is your Kubernetes config file with which you can connect using `kubectl` on your remote computer (move it to `~/.kube/config`).
+Time to get our admin Kubernetes configuration file:
+```bash
+# The last argument is the path of the admin config file, adapt to your liking.
+$ ./get_k8s_config.sh ubuntu@master-node.example.com ~/.kube/<CLUSTER_NAME>
+```
+
+Do not forget to use the configuration file with kubectl, see [The KUBECONFIG environment variable](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#the-kubeconfig-environment-variable) or for a better experience install and configure [ktx](https://github.com/heptiolabs/ktx).
 
 ### Firewall (Optional)
 It's not good security practice to leave the Kubernetes API Server exposed on the internet.
