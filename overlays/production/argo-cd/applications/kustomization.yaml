@@ -4,5 +4,6 @@ bases:
   - ../../../../apps/argo-cd/applications
 patchesStrategicMerge:
   - argo-cd-patch.yaml
-  - cert-manager.yaml
+  - cert-manager-patch.yaml
+  - planetlia_platform_backend-patch.yaml
 namespace: argocd

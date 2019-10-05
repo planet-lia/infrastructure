@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform-backend
+spec:
+  template:
+    spec:
+      containers:
+        - name: backend
+          env:
+            - name: LIA_URL
+              value: "https://api.production.cloud.planetlia.com"

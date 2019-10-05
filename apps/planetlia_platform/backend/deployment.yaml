@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform-backend
+  labels:
+    app: platform-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: platform-backend
+  template:
+    metadata:
+      labels:
+        app: platform-backend
+    spec:
+      containers:
+        - name: backend
+          image: planetlia/backend:0.1-0d4176f4f4ff31d096fa466f7e4ee519e1f77a58
+          ports:
+            - containerPort: 8080
+          env:
+            - name: LIA_URL
+              value: "http://api.example.com"

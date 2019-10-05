@@ -1,0 +1,11 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: api.production.cloud.planetlia.com
+
+- op: replace
+  path: /spec/tls/0/hosts/0
+  value: api.production.cloud.planetlia.com
+
+- op: replace
+  path: /spec/tls/0/secretName
+  value: api.production.cloud.planetlia.com
