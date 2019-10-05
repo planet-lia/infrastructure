@@ -8,10 +8,9 @@ set -e
 # Change working directory to cluster dir (where the install.sh script is)
 cd $(dirname "$0")
 
-if [ $# -ne 1 ]
-  then
-    echo "Usage: ./cluster_create_files.sh <CLUSTER_NAME>"
-    exit 1
+if [[ $# -ne 1 ]]; then
+  echo "Usage: ./cluster_create_files.sh <CLUSTER_NAME>"
+  exit 1
 fi
 
 CLUSTER_NAME=$1

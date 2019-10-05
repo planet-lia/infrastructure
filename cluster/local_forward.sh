@@ -8,10 +8,9 @@
 
 set -e
 
-if [ $# -eq 0 ]
-  then
-    echo "Usage: ./local_forward.sh <HOST> [port]"
-    exit 1
+if [[ $# -eq 0 ]]; then
+  echo "Usage: ./local_forward.sh <HOST> [port]"
+  exit 1
 fi
 
 HOST=$1

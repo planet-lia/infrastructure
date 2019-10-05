@@ -5,8 +5,7 @@
 
 set -e
 
-if [ $# -ne 3 ]
-  then
+if [[ $# -ne 3 ]]; then
     echo "Usage: ./firewall.sh <CLUSTER_MASTER_NODE> <SSH_PRIVATE_KEY> <CLUSTER_SUBNET_CIDR>"
     exit 1
 fi
@@ -15,7 +14,7 @@ CLUSTER_MASTER_NODE=$1
 SSH_PRIVATE_KEY=$2
 CLUSTER_SUBNET_CIDR=$3
 
-if [ ! -f $SSH_PRIVATE_KEY ]; then
+if [[ ! -f $SSH_PRIVATE_KEY ]]; then
     echo "SSH Private Key ${SSH_PRIVATE_KEY} not found"
     exit 1
 else

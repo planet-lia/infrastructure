@@ -7,8 +7,7 @@ set -e
 # Move to cluster dir (where the install.sh script is)
 cd $(dirname "$0")
 
-if [ $# -ne 3 ]
-  then
+if [[ $# -ne 3 ]]; then
     echo "Usage: ./node_add.sh <CLUSTER_NAME> <SSH_PRIVATE_KEY> <NODE>"
     exit 1
 fi
@@ -17,7 +16,7 @@ CLUSTER_NAME=$1
 SSH_PRIVATE_KEY=$2
 NODE=$3
 
-if [ ! -f $SSH_PRIVATE_KEY ]; then
+if [[ ! -f $SSH_PRIVATE_KEY ]]; then
     echo "SSH Private Key $SSH_PRIVATE_KEY not found"
     exit 1
 else
@@ -26,7 +25,7 @@ fi
 
 INVENTORY_FILE="./deployment/${CLUSTER_NAME}/inventory.ini"
 
-if [ ! -f $INVENTORY_FILE ]; then
+if [[ ! -f $INVENTORY_FILE ]]; then
     echo "Inventory file not found in $INVENTORY_FILE"
     exit 1
 fi
