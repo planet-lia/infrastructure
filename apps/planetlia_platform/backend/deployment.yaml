@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: planetlia/backend:0.1-0d4176f4f4ff31d096fa466f7e4ee519e1f77a58
+          image: planetlia/backend:latest
           ports:
             - containerPort: 8080
           env:
