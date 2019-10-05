@@ -1,10 +1,12 @@
 # Planet Lia Infrastructure
-argo-cd:
-![Argo CD Bootstrap Status](https://argocd.production.cloud.planetlia.com/api/badge?name=argo-cd)
 
-cert-manager:
-![Argo CD Bootstrap Status](https://argocd.production.cloud.planetlia.com/api/badge?name=cert-manager)
+| Service                     | Status                                                                                       |
+| --------------------------- |:--------------------------------------------------------------------------------------------:|
+| Planet-Lia Platform Backend | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=planetlia-platform-backend) |
+| Argo-CD                     | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=argo-cd)                    |
+| Cert-Manager                | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=cert-manager)               |
 
+## About
 This repository holds the necessary configuration files and instructions to deploy our official production Planet Lia platform. 
 In general this repository shouldn't be interesting since it contains just operational knowledge how we deploy our platform infrastructure. 
 If however you are curious to see how we run our platform behind the scenes, you are welcome to take a look.
