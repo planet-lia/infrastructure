@@ -5,5 +5,5 @@ bases:
 patchesStrategicMerge:
   - argo-cd-patch.yaml
   - cert-manager-patch.yaml
-  - planetlia_platform_backend-patch.yaml
+  - planetlia_platform_backend_core-patch.yaml
 namespace: argocd

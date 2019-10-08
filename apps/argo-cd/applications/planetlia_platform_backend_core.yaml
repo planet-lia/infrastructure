@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: planetlia-platform-backend
+  name: planetlia-platform-backend-core
 spec:
   project: default
   source:
