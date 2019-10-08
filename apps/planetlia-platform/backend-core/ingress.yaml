@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: platform-backend
+  name: backend-core
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     certmanager.k8s.io/cluster-issuer: letsencrypt-prod
@@ -10,7 +10,7 @@ spec:
     - http:
         paths:
           - backend:
-              serviceName: platform-backend-service
+              serviceName: backend-core-service
               servicePort: 80
       host: api.example.com
   tls:

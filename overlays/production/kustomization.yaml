@@ -3,4 +3,4 @@ kind: Kustomization
 bases:
   - argo-cd
   - cert-manager
-  - planetlia_platform
+  - planetlia-platform

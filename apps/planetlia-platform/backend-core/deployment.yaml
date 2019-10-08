@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platform-backend
+  name: backend-core
   labels:
-    app: platform-backend
+    app: backend-core
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: platform-backend
+      app: backend-core
   template:
     metadata:
       labels:
-        app: platform-backend
+        app: backend-core
     spec:
       containers:
-        - name: backend
-          image: planetlia/backend:latest
+        - name: backend-core
+          image: planetlia/backend-core:latest
           ports:
             - containerPort: 8080
           env:
