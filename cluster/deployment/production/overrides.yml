@@ -11,7 +11,7 @@ upstream_dns_servers:
 ingress_nginx_enabled: true
 ingress_nginx_host_network: true
 ingress_nginx_nodeselector:
-  kubernetes.io/hostname: "s3-lia-node1"
+  kubernetes.io/hostname: "s6"
 ingress_nginx_namespace: "kube-system"
 
 # This should not be used on other clusters. We pin the version to v0.24.1 because
