@@ -11,7 +11,7 @@ set -x
 cd $(dirname "$0")
 
 helm repo update
-helm fetch stable/nginx-ingress --untar --version $(cat VERSION.txt)
+helm fetch stable/nginx-ingress --untar --version $(cat VERSION)
 
 cd nginx-ingress
 
