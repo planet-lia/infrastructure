@@ -110,6 +110,3 @@ Similar to adding a node, simply run:
 ./node_add.sh <CLUSTER_NAME> <SSH_PRIVATE_KEY> <NODE>  # NODE is the name of the node in the inventory.ini file
 ```
 After the successful removal of the node you may remove the node's entry in the `inventory.ini` file of your cluster.
-
-## Credits
-The credit for the structure of the repository and Kubespray technique used to house multiple clusters goes to the :crown: Kubernetes Wizard [dr. Mataž Pančur](https://fri.uni-lj.si/en/employees/matjaz-pancur). 
