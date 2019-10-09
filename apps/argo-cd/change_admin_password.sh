@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Dependencies:
+# * argocd-cli
+# * openssl
+
 # Change the default admin password of Argo-CD. The default password
 # is the name of the pod running argo-cd-server.
 # Note: If the server is no longer on the initial pod it was deployed 
