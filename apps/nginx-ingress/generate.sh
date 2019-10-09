@@ -10,7 +10,7 @@ set -x
 # Move to script's dir
 cd $(dirname "$0")
 
-# helm repo update
+helm repo update
 helm fetch stable/nginx-ingress --untar --version $(cat VERSION.txt)
 
 cd nginx-ingress
