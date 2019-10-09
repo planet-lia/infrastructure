@@ -11,10 +11,6 @@
 
 set -e
 
-# Move to root dir
-cd $(dirname "$0")
-cd ..
-
 if [[ $# -ne 2 ]] && [[ $# -ne 1 ]]; then
   echo "Usage: ./change_admin_password.sh <GRPC_ARGOCD_DOMAIN> [password]"
   echo "If password not set, a random password will be generated."
