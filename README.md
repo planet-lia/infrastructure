@@ -16,6 +16,7 @@ If however you are curious to see how we run our platform behind the scenes, you
 1. Create a cluster, see `cluster` directory for more info
 2. Create a new overlay in `overlays` with the appropriate patches and secrets in the `secrets` dir (copy the template file and rename it to your clusters name)
 3. Run `bash ./cluster/install_overlay.sh <OVERLAY_NAME>` (e.g. `bash ./cluster/install_overlay.sh production`) 
+4. When Argo-CD is up, change the admin password `bash ./apps/argo-cd/change_admin_password.sh <GRPC_ARGOCD_DOMAIN> [password]` (if no password present, one will be generated for you)
 
 ## Credits
 Special thanks to the :crown: Kubernetes Wizard [dr. Mataž Pančur](https://fri.uni-lj.si/en/employees/matjaz-pancur) for his consulting on the  structure of the repository and Kubernetes in general. 
