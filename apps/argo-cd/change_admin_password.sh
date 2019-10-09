@@ -8,6 +8,10 @@
 # is the name of the pod running argo-cd-server.
 # Note: If the server is no longer on the initial pod it was deployed 
 # onto, you will need to reset the admin password.
+#
+# https://argoproj.github.io/argo-cd/faq/#i-forgot-the-admin-password-how-do-i-reset-it
+#
+# TLDR;
 #   1. From argocd/argo-cd--secret remove lines: `admin.password` and `admin.passwordMtime`
 #   2. Kill the argo-cd-server-... pod
 #   3. The name of the new pod is your newly reset admin password. You can change this by
