@@ -1,0 +1,3 @@
+# https://github.com/kubernetes/kubernetes/issues/68369
+- op: remove
+  path: /spec/clusterIP

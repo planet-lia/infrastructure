@@ -1,0 +1,9 @@
+resources:
+  - nginx-ingress.yaml
+  - namespace.yaml
+
+# author: github/@matjazp
+# namespace nginx-ingress is fixed, to change also create a patch for controller parameters
+#  --default-backend-service
+#  --configmap
+namespace: nginx-ingress

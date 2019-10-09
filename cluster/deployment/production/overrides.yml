@@ -8,11 +8,11 @@ upstream_dns_servers:
 # group_vars/k8s-cluster/addons.yml
 
 # Nginx ingress controller deployment
-ingress_nginx_enabled: true
-ingress_nginx_host_network: true
-ingress_nginx_nodeselector:
-  kubernetes.io/hostname: "s6"
-ingress_nginx_namespace: "kube-system"
+# ingress_nginx_enabled: true
+# ingress_nginx_host_network: true
+# ingress_nginx_nodeselector:
+#   kubernetes.io/hostname: "s6"
+# ingress_nginx_namespace: "kube-system"
 
 # This should not be used on other clusters. We pin the version to v0.24.1 because
 # more recent versions require SSE4.2 instruction set which on node e10 (which we pin

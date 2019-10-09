@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+  - ../../../apps/nginx-ingress
+patchesStrategicMerge:
+  - node-selector-patch.yaml
+patchesJson6902:
+  - target:
+      name: nginx-ingress-controller
+      namespace: nginx-ingress
+      version: v1
+      kind: Service
+    path: remove-service-cluster-ip-field-patch.yaml
+  - target:
+      name: nginx-ingress-default-backend
+      namespace: nginx-ingress
+      version: v1
+      kind: Service
+    path: remove-service-cluster-ip-field-patch.yaml

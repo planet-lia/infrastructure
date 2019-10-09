@@ -1,0 +1,10 @@
+controller:
+  hostNetwork: true
+  dnsPolicy: ClusterFirstWithHostNet
+  kind: DaemonSet
+  daemonset:
+    useHostPort: true
+  service:
+    type: ClusterIP
+  config:
+    proxy-body-size: 50m # 50 MB max client file size to proxy

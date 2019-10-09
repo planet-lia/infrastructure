@@ -6,4 +6,5 @@ patchesStrategicMerge:
   - argo-cd-patch.yaml
   - cert-manager-patch.yaml
   - planetlia_platform_backend_core-patch.yaml
+  - nginx-ingress-patch.yaml
 namespace: argocd

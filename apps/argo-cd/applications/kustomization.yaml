@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - argo-cd.yaml
   - cert-manager.yaml
+  - nginx-ingress.yaml
   - planetlia_platform_backend_core.yaml
 namespace: argocd

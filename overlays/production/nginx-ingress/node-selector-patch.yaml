@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nginx-ingress-controller
+  namespace: nginx-ingress
+spec:
+  template:
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: "s6"
