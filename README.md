@@ -1,10 +1,12 @@
 # Planet Lia Infrastructure
 
-| Service                     | Status                                                                                       |
-| --------------------------- |:--------------------------------------------------------------------------------------------:|
-| Planet-Lia Platform Backend | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=planetlia-platform-backend) |
-| Argo-CD                     | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=argo-cd)                    |
-| Cert-Manager                | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=cert-manager)               |
+| Service                          | Status                                                                                            |
+| -------------------------------- |:-------------------------------------------------------------------------------------------------:|
+| Planet-Lia Platform Backend Core | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=planetlia-platform-backend-core) |
+| Argo-CD                          | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=argo-cd)                         |
+| Cert-Manager                     | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=cert-manager)                    |
+| Nginx-Ingress                    | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=nginx-ingress)                   |
+
 
 ## About
 This repository holds the necessary configuration files and instructions to deploy our official production Planet Lia platform. 
