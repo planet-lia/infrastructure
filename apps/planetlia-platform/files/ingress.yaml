@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: files
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+spec:
+  rules:
+    - http:
+        paths:
+          - backend:
+              serviceName: files-service
+              servicePort: 9000
+      host: files.example.com
+  tls:
+    - hosts:
+        - files.example.com
+      secretName: files.example.com-secret

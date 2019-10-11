@@ -4,7 +4,6 @@ bases:
   - ../../../../apps/planetlia-platform/backend-core
 patchesStrategicMerge:
   - deployment-patch.yaml
-
 patchesJson6902:
   - target:
       name: backend-core
