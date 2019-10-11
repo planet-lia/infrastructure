@@ -5,4 +5,5 @@ resources:
   - cert-manager.yaml
   - nginx-ingress.yaml
   - planetlia_platform_backend_core.yaml
+  - planetlia_platform_files.yaml
 namespace: argocd
