@@ -18,7 +18,6 @@ patchesJson6902:
       version: v1
       kind: PersistentVolumeClaim
     path: patches/pvc-storage-class-name-patch.yaml
-    path: patches/pvc-name-patch.yaml
   - target:
       name: minio-pv-claim
       version: v1
