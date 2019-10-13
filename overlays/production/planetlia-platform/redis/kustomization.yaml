@@ -4,5 +4,5 @@ bases:
   - ../../../../apps/planetlia-platform/redis
 resources:
   - pv.yaml
-  - sc.yaml
+#  - sc.yaml
     
