@@ -8,4 +8,5 @@ patchesStrategicMerge:
   - nginx-ingress-patch.yaml
   - planetlia_platform_backend_core-patch.yaml
   - planetlia_platform_files-patch.yaml
+  - planetlia_platform_redis-patch.yaml
 namespace: argocd

@@ -6,4 +6,5 @@ resources:
   - nginx-ingress.yaml
   - planetlia_platform_backend_core.yaml
   - planetlia_platform_files.yaml
+  - planetlia_platform_redis.yaml
 namespace: argocd
