@@ -1,3 +1,3 @@
 - op: replace
   path: /spec/template/spec/containers/0/image
-  value: planetlia/backend-core:0.1-1b578561ad2268a850d778aee94df5bdfbbdba4a
+  value: planetlia/backend-core:0.1-c036f91a38fc31e4fd74c89b42b3dbf9366f139f
