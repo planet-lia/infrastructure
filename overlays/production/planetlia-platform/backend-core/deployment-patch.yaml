@@ -16,7 +16,9 @@ spec:
             - name: LIA_REDIS_HOST
               value: "redis-service"
             - name: LIA_MINIO_HOST
-              value: "files-service"
+              value: "files.production.cloud.planetlia.com"
+            - name: "LIA_MINIO_PORT"
+              value: "443"
             - name: "LIA_MINIO_ACCESS_KEY"
               valueFrom:
                 secretKeyRef:
@@ -27,4 +29,3 @@ spec:
                 secretKeyRef:
                   name: files-secret
                   key: minio-secret-key
-              
