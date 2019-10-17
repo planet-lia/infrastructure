@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-core
+  namespace: planetlia-platform
 spec:
   template:
     spec:
@@ -10,3 +11,5 @@ spec:
           env:
             - name: LIA_URL
               value: "https://api.production.cloud.planetlia.com"
+            - name: LIA_ONLINE_EDITOR_MAX_CPU
+              value: "6"
