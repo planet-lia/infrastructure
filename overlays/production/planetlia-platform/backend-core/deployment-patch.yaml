@@ -15,3 +15,16 @@ spec:
               value: "6"
             - name: LIA_REDIS_HOST
               value: "redis-service"
+            - name: LIA_MINIO_HOST
+              value: "files-service"
+            - name: "LIA_MINIO_ACCESS_KEY"
+              valueFrom:
+                secretKeyRef:
+                  name: files-secret
+                  key: minio-access-key
+            - name: "LIA_MINIO_SECRET_KEY"
+              valueFrom:
+                secretKeyRef:
+                  name: files-secret
+                  key: minio-secret-key
+              
