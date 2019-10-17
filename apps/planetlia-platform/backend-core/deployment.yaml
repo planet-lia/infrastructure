@@ -15,6 +15,7 @@ spec:
       labels:
         app: backend-core
     spec:
+      serviceAccountName: backend-core-sa
       containers:
         - name: backend-core
           image: planetlia/backend-core:latest
