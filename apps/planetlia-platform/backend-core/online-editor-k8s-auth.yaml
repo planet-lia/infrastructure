@@ -11,7 +11,7 @@ metadata:
   namespace: online-editor-matches
 rules:
 - apiGroups: [""]
-  resources: ["pods" , "pods/log", "namespace"]
+  resources: ["pods" , "pods/log", "namespaces"]
   verbs: ["*"]
 ---
 kind: RoleBinding
