@@ -10,7 +10,7 @@ metadata:
   name: online-editor-matches-role
   namespace: online-editor-matches
 rules:
-- apiGroups: [""]
+- apiGroups: ["", "extensions", "apps"]
   resources: ["pods" , "pods/log", "namespaces"]
   verbs: ["*"]
 ---
