@@ -3,7 +3,8 @@
 | Service                          | Status                                                                                            |
 | -------------------------------- |:-------------------------------------------------------------------------------------------------:|
 | Planet-Lia Platform Backend Core | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=planetlia-platform-backend-core) |
-| Planet-Lia Platform Files        | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=planetlia-platform-files) |
+| Planet-Lia Platform Files        | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=planetlia-platform-files)        |
+| Planet-Lia Platform Redis        | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=planetlia-platform-redis)        |
 | Argo-CD                          | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=argo-cd)                         |
 | Cert-Manager                     | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=cert-manager)                    |
 | Nginx-Ingress                    | ![](https://argocd.production.cloud.planetlia.com/api/badge?name=nginx-ingress)                   |
