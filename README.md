@@ -20,4 +20,4 @@ If however you are curious to see how we run our platform behind the scenes, you
 4. When Argo-CD is up, change the admin password `bash ./apps/argo-cd/change_admin_password.sh <GRPC_ARGOCD_DOMAIN> [password]` (if no password present, one will be generated for you)
 
 ## Credits
-Special thanks to the :crown: Kubernetes Wizard [dr. Mataž Pančur](https://fri.uni-lj.si/en/employees/matjaz-pancur) for his consulting on the  structure of the repository and Kubernetes in general. 
+Special thanks to the :crown: Kubernetes Wizard [dr. Matjaž Pančur](https://fri.uni-lj.si/en/employees/matjaz-pancur) for his consulting on the  structure of the repository and Kubernetes in general. 
