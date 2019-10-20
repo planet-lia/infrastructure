@@ -48,6 +48,12 @@ patchesJson6902:
       kind: Deployment
     path: patches/deployment-secrets-patch.yaml
   - target:
+      name: minio
+      version: v1
+      group: apps
+      kind: Deployment
+    path: patches/deployment-probe-patch.yaml
+  - target:
       name: minio-service
       version: v1
       kind: Service
